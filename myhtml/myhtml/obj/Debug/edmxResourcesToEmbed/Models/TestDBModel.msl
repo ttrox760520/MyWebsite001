@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TestDBModelStoreContainer" CdmEntityContainer="TestDBEntities">
+    <EntitySetMapping Name="Member">
+      <EntityTypeMapping TypeName="TestDBModel.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="帳號" ColumnName="帳號" />
+          <ScalarProperty Name="密碼" ColumnName="密碼" />
+          <ScalarProperty Name="暱稱" ColumnName="暱稱" />
+          <ScalarProperty Name="身分" ColumnName="身分" />
+          <ScalarProperty Name="描述" ColumnName="描述" />
+          <ScalarProperty Name="是否正式會員" ColumnName="是否正式會員" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student">
+      <EntityTypeMapping TypeName="TestDBModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="座號" ColumnName="座號" />
+          <ScalarProperty Name="姓名" ColumnName="姓名" />
+          <ScalarProperty Name="暱稱" ColumnName="暱稱" />
+          <ScalarProperty Name="電話" ColumnName="電話" />
+          <ScalarProperty Name="地址" ColumnName="地址" />
+          <ScalarProperty Name="緊急聯絡人" ColumnName="緊急聯絡人" />
+          <ScalarProperty Name="緊急連絡人電話" ColumnName="緊急連絡人電話" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

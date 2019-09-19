@@ -94,3 +94,6 @@ D:\C#CORE\012\myhtml\myhtml\bin\zh-Hant\System.Web.Http.resources.dll
 D:\C#CORE\012\myhtml\myhtml\bin\zh-Hant\System.Web.Http.WebHost.resources.dll
 D:\C#CORE\012\myhtml\myhtml\bin\BaseLibrary.dll
 D:\C#CORE\012\myhtml\myhtml\bin\BaseLibrary.pdb
+D:\C#CORE\012\myhtml\myhtml\bin\EntityFramework.dll
+D:\C#CORE\012\myhtml\myhtml\bin\EntityFramework.xml
+D:\C#CORE\012\myhtml\myhtml\bin\zh-Hant\EntityFramework.resources.dll

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="帳號" />
+    </Key>
+    <Property Name="帳號" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="密碼" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="暱稱" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="身分" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="描述" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="是否正式會員" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="座號" Type="int" Nullable="false" />
+    <Property Name="姓名" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="暱稱" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="電話" Type="nchar" MaxLength="20" />
+    <Property Name="地址" Type="nchar" MaxLength="50" />
+    <Property Name="緊急聯絡人" Type="nchar" MaxLength="10" />
+    <Property Name="緊急連絡人電話" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="TestDBModelStoreContainer">
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

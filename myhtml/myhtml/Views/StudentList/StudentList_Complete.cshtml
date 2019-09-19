@@ -1,0 +1,70 @@
+﻿@model List<myhtml.Models.StudentList>
+@{
+    ViewBag.Title = "學生資料";
+}
+
+<h2>學生資料</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create", "UserInfo")  @Html.ActionLink("詳細資料", "StudentList_Complete", "Home")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("排序")
+        </th>
+        <th>
+            @Html.DisplayName("學號")
+        </th>
+        <th>
+            @Html.DisplayName("座號")
+        </th>
+        <th>
+            @Html.DisplayName("姓名")
+        </th>
+        <th>
+            @Html.DisplayName("電話")
+        </th>
+        <th>
+            @Html.DisplayName("緊急連絡人")
+        </th>
+        <th>
+            @Html.DisplayName("緊急連絡人電話")
+        </th>
+        <th></th>
+    </tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.Label("seq", (i + 1).ToString())
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].Id)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].座號)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].姓名)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].電話)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].緊急聯絡人)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].緊急連絡人電話)
+            </td>
+
+            <td>
+                @* 補充: @id = i為Url參數的寫法，Controller/Action/ActionParameter中的參數就會是i，也就是第幾筆資料 *@
+                @Html.ActionLink("編輯", "Edit", "UserInfo", new { @id = i }, null) |
+                @Html.ActionLink("詳細資料", "Details", "UserInfo", new { @id = i }, null) |
+                @* 補充: 最後一個參數onclick內可以放Url/method，以這個例子是回傳一個js method *@
+                @Html.ActionLink("刪除", "Delete", "UserInfo", new { @id = i }, new { @onclick = "return confirm('確定刪除?');" })
+            </td>
+        </tr>
+    }
+</table>
