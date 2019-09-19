@@ -1,0 +1,40 @@
+﻿@model myhtml.Models.Home.IndexModel
+@{
+    ViewBag.Title = "首頁";
+}
+
+    <div class="jumbotron">
+        
+        <FONT FACE="標楷體" size="6" COLOR="#009FCC">
+                <B>陳彥廷老師的自然教室</B>
+        </FONT><br>
+        <FONT FACE="標楷體" size="5" COLOR="#666666">
+            歡迎大家來到彥廷老師的自然教室，希望大家都能快樂愉快的學習！
+        </FONT><p>
+        <p><a href="https://www.facebook.com/profile.php?id=100000305285018&ref=bookmarks" class="btn btn-primary btn-lg">連結至Facebook &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h3>關於彥廷老師</h3>
+        <p>
+            我是陳彥廷，畢業於花蓮教育大學(國立東華大學)自然科學教育學系，若想深入了解我，請點選我的履歷。
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("AboutMe","Home")">我的履歷 &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        <h3>最新消息</h3>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        <h3>作品集</h3>
+        <p>程式相關的作品集，請點選我的GitHub</p>
+        <p><a class="btn btn-default" href="https://github.com/ttrox760520">我的GitHub &raquo;</a></p>
+    </div>
+    
+    
+</div>
+<span>
+    @Model.text
+</span>
