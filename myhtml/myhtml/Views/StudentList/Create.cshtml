@@ -9,10 +9,10 @@
 @using (Html.BeginForm("Create", "StudentList", FormMethod.Post, new { id = "UserInfo" }))
 {
     <pre>   
-       學號：@Html.TextBoxFor(m => m.Id) <br />
-       座號：@Html.TextBoxFor(m => m.座號) <br />
-       姓名：@Html.TextBoxFor(m => m.姓名) <br />
-       暱稱：@Html.TextBoxFor(m => m.暱稱) <br />
+       學號：@Html.TextBoxFor(m => m.StudentID) <br />
+       座號：@Html.TextBoxFor(m => m.ClassID) <br />
+       姓名：@Html.TextBoxFor(m => m.Name) <br />
+       暱稱：@Html.TextBoxFor(m => m.Nickname) <br />
     <input type="submit" value="確定" id="submit">  <input type="reset" value="清除"><br />
 
      </pre>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Account" />
+    </Key>
+    <Property Name="Account" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserName" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Identity" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Memo" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="RealMember" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="ClassID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nickname" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="20" />
+    <Property Name="Address" Type="nchar" MaxLength="50" />
+    <Property Name="EmergencyContact" Type="nchar" MaxLength="10" />
+    <Property Name="EmergencyPhone" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="StudentDBModelStoreContainer">
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

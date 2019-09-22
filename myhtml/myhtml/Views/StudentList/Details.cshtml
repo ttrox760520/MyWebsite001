@@ -9,25 +9,23 @@
 @using (Html.BeginForm("Details", "UserInfo", FormMethod.Post, new  { @id = "form" }))
 {
     <pre>   
-           學號：@Html.TextBoxFor(m => m.Id, new { disabled = "disabled" }) @Html.HiddenFor(m => m.Id)<br />
-           座號：@Html.TextBoxFor(m => m.座號, new {@class="座號" , disabled = "true" }) @Html.HiddenFor(m => m.座號)<br />
-           姓名：@Html.TextBoxFor(m => m.姓名, new {@class="姓名" , disabled = "true" }) @Html.HiddenFor(m => m.姓名)<br />
-           暱稱：@Html.TextBoxFor(m => m.暱稱, new {@class="暱稱" , disabled = "true"  }) @Html.HiddenFor(m => m.暱稱)<br />
-           電話：@Html.TextBoxFor(m => m.電話, new {@class="電話" , disabled = "true"  }) @Html.HiddenFor(m => m.電話)<br />
-           地址：@Html.TextBoxFor(m => m.地址, new {@class="地址" , disabled = "true"  }) @Html.HiddenFor(m => m.地址)<br />
-     緊急聯絡人：@Html.TextBoxFor(m => m.緊急聯絡人, new {@class="緊急聯絡人" , disabled = "true"  }) @Html.HiddenFor(m => m.緊急聯絡人)<br />
- 緊急連絡人電話：@Html.TextBoxFor(m => m.緊急連絡人電話, new {@class="緊急連絡人電話" , disabled = "true"  }) @Html.HiddenFor(m => m.緊急連絡人電話)<br />
+           學號：@Html.TextBoxFor(m => m.StudentID, new { disabled = "disabled" }) @Html.HiddenFor(m => m.StudentID)<br />
+           座號：@Html.TextBoxFor(m => m.ClassID, new {@class="座號" , disabled = "true" }) @Html.HiddenFor(m => m.ClassID)<br />
+           姓名：@Html.TextBoxFor(m => m.Name, new {@class="姓名" , disabled = "true" }) @Html.HiddenFor(m => m.Name)<br />
+           暱稱：@Html.TextBoxFor(m => m.Nickname, new {@class="暱稱" , disabled = "true"  }) @Html.HiddenFor(m => m.Nickname)<br />
+           電話：@Html.TextBoxFor(m => m.Phone, new {@class="電話" , disabled = "true"  }) @Html.HiddenFor(m => m.Phone)<br />
+           地址：@Html.TextBoxFor(m => m.Address, new {@class="地址" , disabled = "true"  }) @Html.HiddenFor(m => m.Address)<br />
+     緊急聯絡人：@Html.TextBoxFor(m => m.EmergencyContact, new {@class="緊急聯絡人" , disabled = "true"  }) @Html.HiddenFor(m => m.EmergencyContact)<br />
+ 緊急連絡人電話：@Html.TextBoxFor(m => m.EmergencyPhone, new {@class="緊急連絡人電話" , disabled = "true"  }) @Html.HiddenFor(m => m.EmergencyPhone)<br />
         <input type="submit" value="確定" id="submit" name="submit"> <input type="button" value="修改" id="edit" name="edit"><br />
         <input type="submit"  value="確定修改" id="editsubmit" name="editsubmit" style="visibility:hidden">
      </pre>
 }
 
 @section scripts{
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         $(document).ready(function ()
         {
-           
-            $('#Id').val('@Model.Id');
             var message = '@ViewData["Message"]';
             if (message != null && message != '')
             {
@@ -36,7 +34,7 @@
         });
         document.getElementById("edit").onclick = function () { EditFunction() };
         function EditFunction()
-        { @*判斷式有問題*@
+        { 判斷式有問題
                $('#Id').attr("disabled", false);
             $('#座號').attr("disabled", false);
             $('#姓名').attr("disabled", false);
@@ -70,15 +68,15 @@
             {
                 alert("資料完全相同,尚未修改!");
                 return false;
+            }*@
+            @*var checkEmail = document.getElementById("Email").value;
+            var EmailRule = /^([a-zA-Z0-9_\.\-\+])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!EmailRule.test(checkEmail))
+            {
+                alert("信箱格式錯誤");
+                return false;
             }
-            //var checkEmail = document.getElementById("Email").value;
-            //var EmailRule = /^([a-zA-Z0-9_\.\-\+])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            //if (!EmailRule.test(checkEmail))
-            //{
-            //    alert("信箱格式錯誤");
-            //    return false;
-            //}
-            //檢查信箱格式
+            檢查信箱格式
         };
-    </script>
+    </script>*@
 }

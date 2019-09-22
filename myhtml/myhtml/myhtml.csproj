@@ -143,28 +143,28 @@
     </Compile>
     <Compile Include="Models\Home\IndexModel.cs" />
     <Compile Include="Models\Member.cs">
-      <DependentUpon>TestDBModel.tt</DependentUpon>
+      <DependentUpon>StudentDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MemberList.cs" />
     <Compile Include="Models\Student.cs">
-      <DependentUpon>TestDBModel.tt</DependentUpon>
+      <DependentUpon>StudentDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentList.cs" />
-    <Compile Include="Models\TestDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TestDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TestDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestDBModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -176,24 +176,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\TestDBModel.Context.tt">
+    <Content Include="Models\StudentDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TestDBModel.Context.cs</LastGenOutput>
-      <DependentUpon>TestDBModel.edmx</DependentUpon>
+      <DependentUpon>StudentDBModel.edmx</DependentUpon>
+      <LastGenOutput>StudentDBModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\TestDBModel.tt">
+    <Content Include="Models\StudentDBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TestDBModel.edmx</DependentUpon>
-      <LastGenOutput>TestDBModel.cs</LastGenOutput>
+      <DependentUpon>StudentDBModel.edmx</DependentUpon>
+      <LastGenOutput>StudentDBModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\TestDBModel.edmx">
+    <EntityDeploy Include="Models\StudentDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TestDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>StudentDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\TestDBModel.edmx.diagram">
-      <DependentUpon>TestDBModel.edmx</DependentUpon>
+    <Content Include="Models\StudentDBModel.edmx.diagram">
+      <DependentUpon>StudentDBModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -229,7 +229,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\HomeController_StudentList\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

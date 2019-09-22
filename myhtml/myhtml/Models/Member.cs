@@ -14,11 +14,11 @@ namespace myhtml.Models
     
     public partial class Member
     {
-        public string 帳號 { get; set; }
-        public string 密碼 { get; set; }
-        public string 暱稱 { get; set; }
-        public string 身分 { get; set; }
-        public string 描述 { get; set; }
-        public int 是否正式會員 { get; set; }
+        public string Account { get; set; }
+        public string Password { get; set; }
+        public string UserName { get; set; }
+        public string Identity { get; set; }
+        public string Memo { get; set; }
+        public int RealMember { get; set; }
     }
 }

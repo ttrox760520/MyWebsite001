@@ -31,15 +31,15 @@
                 @Html.Label("seq", (i + 1).ToString())
             </td>
             <td>
-                @Html.DisplayFor(p => Model[i].Id)
+                @Html.DisplayFor(p => Model[i].StudentID)
             </td>
             <td>
-                @Html.DisplayFor(p => Model[i].座號)
+                @Html.DisplayFor(p => Model[i].ClassID)
             </td>
             <td>
-                @Html.DisplayFor(p => Model[i].暱稱)
+                @Html.DisplayFor(p => Model[i].Nickname)
             </td>
-            
+
         </tr>
     }
 </table>

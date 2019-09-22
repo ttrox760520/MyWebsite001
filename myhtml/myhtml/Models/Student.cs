@@ -14,13 +14,13 @@ namespace myhtml.Models
     
     public partial class Student
     {
-        public int Id { get; set; }
-        public int 座號 { get; set; }
-        public string 姓名 { get; set; }
-        public string 暱稱 { get; set; }
-        public string 電話 { get; set; }
-        public string 地址 { get; set; }
-        public string 緊急聯絡人 { get; set; }
-        public string 緊急連絡人電話 { get; set; }
+        public int StudentID { get; set; }
+        public int ClassID { get; set; }
+        public string Name { get; set; }
+        public string Nickname { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string EmergencyContact { get; set; }
+        public string EmergencyPhone { get; set; }
     }
 }

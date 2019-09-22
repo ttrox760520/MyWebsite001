@@ -10,27 +10,27 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace myhtml.Controllers
 {
-    
+
     public class StudentListController : BaseController
     {
         #region "List"
         public ActionResult StudentList()
         {
-            var db = new TestDBEntities();
+            var db = new StudentDBEntities();
             List<Student> dbInfo = db.Student.ToList();
             var viewModelList = new List<StudentList>();
             foreach (Student info in dbInfo)
             {
                 var tmpInfo = new StudentList()
                 {
-                    Id = info.Id,
-                    座號 = info.座號,
-                    姓名 = info.姓名,
-                    暱稱 = info.暱稱,
-                    電話 = info.電話,
-                    地址 = info.地址,
-                    緊急聯絡人 = info.緊急聯絡人,
-                    緊急連絡人電話 = info.緊急連絡人電話,
+                    StudentID = info.StudentID,
+                    ClassID = info.ClassID,
+                    Name = info.Name,
+                    Nickname = info.Nickname,
+                    Phone = info.Phone,
+                    Address = info.Address,
+                    EmergencyContact = info.EmergencyContact,
+                    EmergencyPhone = info.EmergencyPhone,
                 };
                 viewModelList.Add(tmpInfo);
             }
@@ -38,21 +38,21 @@ namespace myhtml.Controllers
         }
         public ActionResult StudentList_Complete()
         {
-            var db = new TestDBEntities();
+            var db = new StudentDBEntities();
             List<Student> dbInfo = db.Student.ToList();
             var viewModelList = new List<StudentList>();
             foreach (Student info in dbInfo)
             {
                 var tmpInfo = new StudentList()
                 {
-                    Id = info.Id,
-                    座號 = info.座號,
-                    姓名 = info.姓名,
-                    暱稱 = info.暱稱,
-                    電話 = info.電話,
-                    地址 = info.地址,
-                    緊急聯絡人 = info.緊急聯絡人,
-                    緊急連絡人電話 = info.緊急連絡人電話,
+                    StudentID = info.StudentID,
+                    ClassID = info.ClassID,
+                    Name = info.Name,
+                    Nickname = info.Nickname,
+                    Phone = info.Phone,
+                    Address = info.Address,
+                    EmergencyContact = info.EmergencyContact,
+                    EmergencyPhone = info.EmergencyPhone,
                 };
                 viewModelList.Add(tmpInfo);
             }
@@ -69,13 +69,13 @@ namespace myhtml.Controllers
         [HttpPost]
         public ActionResult Create(Student info)
         {
-            var db = new TestDBEntities();
+            var db = new StudentDBEntities();
             List<Student> dbInfo = db.Student.ToList();
             var newuserinfo = new Student();
 
             foreach (Student theinfo in dbInfo)
             {
-                if (info.Id.Equals(theinfo.Id))
+                if (info.StudentID.Equals(theinfo.StudentID))
                 {
                     ViewData["Message"] = "學生學號重複，請修改學號！";
                     return View();
@@ -94,7 +94,7 @@ namespace myhtml.Controllers
         {
             try
             {
-                var db = new TestDBEntities();
+                var db = new StudentDBEntities();
                 List<Student> dbInfo = db.Student.ToList();
                 db.Student.Remove(dbInfo[int.Parse(num)]);
                 db.SaveChanges();
@@ -113,17 +113,17 @@ namespace myhtml.Controllers
         {
             if (!string.IsNullOrEmpty(num))
             {
-                var db = new TestDBEntities();
+                var db = new StudentDBEntities();
                 List<Student> dbInfo = db.Student.ToList();
                 Student SelectStudent = new Student();
-                SelectStudent.Id = dbInfo[int.Parse(num)].Id;
-                SelectStudent.座號 = dbInfo[int.Parse(num)].座號;
-                SelectStudent.姓名 = dbInfo[int.Parse(num)].姓名;
-                SelectStudent.暱稱 = dbInfo[int.Parse(num)].暱稱;
-                SelectStudent.電話 = dbInfo[int.Parse(num)].電話;
-                SelectStudent.地址 = dbInfo[int.Parse(num)].地址;
-                SelectStudent.緊急聯絡人 = dbInfo[int.Parse(num)].緊急聯絡人;
-                SelectStudent.緊急連絡人電話 = dbInfo[int.Parse(num)].緊急連絡人電話;
+                SelectStudent.StudentID = dbInfo[int.Parse(num)].StudentID;
+                SelectStudent.ClassID = dbInfo[int.Parse(num)].ClassID;
+                SelectStudent.Name = dbInfo[int.Parse(num)].Name;
+                SelectStudent.Nickname = dbInfo[int.Parse(num)].Nickname;
+                SelectStudent.Phone = dbInfo[int.Parse(num)].Phone;
+                SelectStudent.Address = dbInfo[int.Parse(num)].Address;
+                SelectStudent.EmergencyContact = dbInfo[int.Parse(num)].EmergencyContact;
+                SelectStudent.EmergencyPhone = dbInfo[int.Parse(num)].EmergencyPhone;
 
                 return View(SelectStudent);
             }

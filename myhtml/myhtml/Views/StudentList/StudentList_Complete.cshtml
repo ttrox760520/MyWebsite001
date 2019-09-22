@@ -6,7 +6,7 @@
 <h2>學生資料</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create", "StudentList")  
+    @Html.ActionLink("新增", "Create", "StudentList")
 </p>
 <table class="table">
     <tr>
@@ -40,22 +40,22 @@
                 @Html.Label("seq", (i + 1).ToString())
             </td>
             <td>
-                @Html.DisplayFor(p => Model[i].Id)
+                @Html.DisplayFor(p => Model[i].StudentID)
             </td>
             <td>
-                @Html.DisplayFor(p => Model[i].座號)
+                @Html.DisplayFor(p => Model[i].ClassID)
             </td>
             <td>
-                @Html.DisplayFor(p => Model[i].姓名)
+                @Html.DisplayFor(p => Model[i].Name)
             </td>
             <td>
-                @Html.DisplayFor(p => Model[i].電話)
+                @Html.DisplayFor(p => Model[i].Phone)
             </td>
             <td>
-                @Html.DisplayFor(p => Model[i].緊急聯絡人)
+                @Html.DisplayFor(p => Model[i].EmergencyContact)
             </td>
             <td>
-                @Html.DisplayFor(p => Model[i].緊急連絡人電話)
+                @Html.DisplayFor(p => Model[i].EmergencyPhone)
             </td>
 
             <td>
