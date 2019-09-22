@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 陳老師的自然教室</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -24,7 +25,7 @@
                     <li>@Html.ActionLink("回首頁", "Index", "Home")</li>
                     <li>@Html.ActionLink("最新消息", "About", "Home")</li>
                     <li>@Html.ActionLink("班級學生", "StudentList", "StudentList")</li>
-                    <li>@Html.ActionLink("自然小知識", "Contact", "Home")</li>
+                    <li><a class="btn" href="https://www.nature.com/">自然相關最新知識</a></li>
                     <li>@Html.ActionLink("成員登入", "SignIn", "Home")</li>
                 </ul>
             </div>
@@ -43,3 +44,5 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+"@*@Html.ActionLink("自然小知識", "ConnectToNature", "Home")*@

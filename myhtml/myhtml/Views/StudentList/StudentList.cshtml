@@ -6,7 +6,7 @@
 <h2>本班主人翁</h2>
 
 <p>
-    @Html.ActionLink("新增", "Create", "UserInfo")  @Html.ActionLink("詳細資料", "StudentList_Complete", "StudentList")
+    @Html.ActionLink("詳細資料", "StudentList_Complete", "StudentList")
 </p>
 <table class="table">
     <tr>
@@ -39,13 +39,7 @@
             <td>
                 @Html.DisplayFor(p => Model[i].暱稱)
             </td>
-            <td>
-                @* 補充: @id = i為Url參數的寫法，Controller/Action/ActionParameter中的參數就會是i，也就是第幾筆資料 *@
-                @Html.ActionLink("編輯", "Edit", "UserInfo", new { @id = i }, null) |
-                @Html.ActionLink("詳細資料", "Details", "UserInfo", new { @id = i }, null) |
-                @* 補充: 最後一個參數onclick內可以放Url/method，以這個例子是回傳一個js method *@
-                @Html.ActionLink("刪除", "Delete", "UserInfo", new { @id = i }, new { @onclick = "return confirm('確定刪除?');" })
-            </td>
+            
         </tr>
     }
 </table>

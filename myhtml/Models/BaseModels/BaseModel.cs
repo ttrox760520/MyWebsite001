@@ -8,8 +8,8 @@ namespace BaseModels
 {
     public abstract class BaseModel
     { 
-        public string Free_Name1 { get; set; }
+        //public string Free_Name1 { get; set; }
 
-        public bool Login = false;
+        //public bool Login = false;
     }
 }

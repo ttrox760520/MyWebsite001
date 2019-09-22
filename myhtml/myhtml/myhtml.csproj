@@ -224,6 +224,8 @@
     <Content Include="Views\Home\SignIn.cshtml" />
     <Content Include="Views\StudentList\StudentList.cshtml" />
     <Content Include="Views\StudentList\StudentList_Complete.cshtml" />
+    <Content Include="Views\StudentList\Create.cshtml" />
+    <Content Include="Views\StudentList\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
