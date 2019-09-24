@@ -89,14 +89,61 @@ namespace myhtml.Controllers
         }
         #endregion "Create"
 
+        #region "Edit"
+
+        public ActionResult Edit(string id)
+        {
+            var db = new StudentDBEntities();
+            List<Student> dbInfo = db.Student.ToList();
+            
+            var tmpInfo = new Student()
+            {
+                StudentID = dbInfo[int.Parse(id)].StudentID,
+                ClassID = dbInfo[int.Parse(id)].ClassID,
+                Name = dbInfo[int.Parse(id)].Name,
+                Nickname = dbInfo[int.Parse(id)].Nickname,
+                Phone = dbInfo[int.Parse(id)].Phone,
+                Address = dbInfo[int.Parse(id)].Address,
+                EmergencyContact = dbInfo[int.Parse(id)].EmergencyContact,
+                EmergencyPhone = dbInfo[int.Parse(id)].EmergencyPhone,
+            };
+            return View(tmpInfo);
+        }
+        [HttpPost]
+        public ActionResult Edit(string id, Student info)
+        {
+            var db = new StudentDBEntities();
+            List<Student> dbInfo = db.Student.ToList();
+            try
+            {
+                dbInfo[int.Parse(id)].StudentID = info.StudentID;
+                dbInfo[int.Parse(id)].ClassID = info.ClassID;
+                dbInfo[int.Parse(id)].Name = info.Name;
+                dbInfo[int.Parse(id)].Nickname = info.Nickname;
+                dbInfo[int.Parse(id)].Phone = info.Phone;
+                dbInfo[int.Parse(id)].Address = info.Address;
+                dbInfo[int.Parse(id)].EmergencyContact = info.EmergencyContact;
+                dbInfo[int.Parse(id)].EmergencyPhone = info.EmergencyPhone;
+                db.SaveChanges();
+                return RedirectToAction("StudentList_Complete");
+            }
+            catch
+            {
+                ViewData["Message"] = "修改出錯了唷!";
+                return View("Edit");
+            }
+        }
+
+        #endregion "Edit"
+
         #region "Delete"
-        public ActionResult Delete(string num)
+        public ActionResult Delete(string id)
         {
             try
             {
                 var db = new StudentDBEntities();
                 List<Student> dbInfo = db.Student.ToList();
-                db.Student.Remove(dbInfo[int.Parse(num)]);
+                db.Student.Remove(dbInfo[int.Parse(id)]);
                 db.SaveChanges();
                 return RedirectToAction("StudentList");
             }
@@ -109,26 +156,55 @@ namespace myhtml.Controllers
         #endregion "Delete"
 
         #region "Details"
-        public ActionResult Details(string num)
+        public ActionResult Details(string id)
         {
-            if (!string.IsNullOrEmpty(num))
+            if (!string.IsNullOrEmpty(id))
             {
                 var db = new StudentDBEntities();
                 List<Student> dbInfo = db.Student.ToList();
                 Student SelectStudent = new Student();
-                SelectStudent.StudentID = dbInfo[int.Parse(num)].StudentID;
-                SelectStudent.ClassID = dbInfo[int.Parse(num)].ClassID;
-                SelectStudent.Name = dbInfo[int.Parse(num)].Name;
-                SelectStudent.Nickname = dbInfo[int.Parse(num)].Nickname;
-                SelectStudent.Phone = dbInfo[int.Parse(num)].Phone;
-                SelectStudent.Address = dbInfo[int.Parse(num)].Address;
-                SelectStudent.EmergencyContact = dbInfo[int.Parse(num)].EmergencyContact;
-                SelectStudent.EmergencyPhone = dbInfo[int.Parse(num)].EmergencyPhone;
+
+                SelectStudent.StudentID = dbInfo[int.Parse(id)].StudentID;
+                SelectStudent.ClassID = dbInfo[int.Parse(id)].ClassID;
+                SelectStudent.Name = dbInfo[int.Parse(id)].Name;
+                SelectStudent.Nickname = dbInfo[int.Parse(id)].Nickname;
+                SelectStudent.Phone = dbInfo[int.Parse(id)].Phone;
+                SelectStudent.Address = dbInfo[int.Parse(id)].Address;
+                SelectStudent.EmergencyContact = dbInfo[int.Parse(id)].EmergencyContact;
+                SelectStudent.EmergencyPhone = dbInfo[int.Parse(id)].EmergencyPhone;
 
                 return View(SelectStudent);
             }
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Details(string id, Student info)
+        {
+            var db = new StudentDBEntities();
+            List<Student> dbInfo = db.Student.ToList();
+            try
+            {
+                dbInfo[int.Parse(id)].StudentID = info.StudentID;
+                dbInfo[int.Parse(id)].ClassID = info.ClassID;
+                dbInfo[int.Parse(id)].Name = info.Name;
+                dbInfo[int.Parse(id)].Nickname = info.Nickname;
+                dbInfo[int.Parse(id)].Phone = info.Phone;
+                dbInfo[int.Parse(id)].Address= info.Address;
+                dbInfo[int.Parse(id)].EmergencyContact = info.EmergencyContact;
+                dbInfo[int.Parse(id)].EmergencyPhone = info.EmergencyPhone;
+                db.SaveChanges();
+                return RedirectToAction("StudentList_Complete");
+            }
+            catch
+            {
+                ViewData["Message"] = "修改出錯了唷!";
+                return View("Details");
+            }
+
+
+        }
+
         #endregion "Details"
     }
 

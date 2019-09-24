@@ -19,7 +19,6 @@ D:\C#CORE\012\myhtml\Library\BaseLibrary\bin\Debug\zh-Hant\System.Web.Razor.reso
 D:\C#CORE\012\myhtml\Library\BaseLibrary\bin\Debug\zh-Hant\System.Web.WebPages.resources.dll
 D:\C#CORE\012\myhtml\Library\BaseLibrary\bin\Debug\zh-Hant\System.Web.WebPages.Deployment.resources.dll
 D:\C#CORE\012\myhtml\Library\BaseLibrary\bin\Debug\zh-Hant\System.Web.WebPages.Razor.resources.dll
-D:\C#CORE\012\myhtml\Library\BaseLibrary\obj\Debug\BaseLibrary.csprojAssemblyReference.cache
 D:\C#CORE\012\myhtml\Library\BaseLibrary\obj\Debug\BaseLibrary.csproj.CoreCompileInputs.cache
 D:\C#CORE\012\myhtml\Library\BaseLibrary\obj\Debug\BaseLibrary.csproj.CopyComplete
 D:\C#CORE\012\myhtml\Library\BaseLibrary\obj\Debug\BaseLibrary.dll

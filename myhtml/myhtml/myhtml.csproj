@@ -226,6 +226,7 @@
     <Content Include="Views\StudentList\StudentList_Complete.cshtml" />
     <Content Include="Views\StudentList\Create.cshtml" />
     <Content Include="Views\StudentList\Details.cshtml" />
+    <Content Include="Views\StudentList\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

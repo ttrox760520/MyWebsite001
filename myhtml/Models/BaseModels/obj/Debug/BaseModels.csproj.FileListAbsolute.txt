@@ -1,6 +1,5 @@
 D:\C#CORE\012\myhtml\Models\BaseModels\bin\Debug\BaseModels.dll
 D:\C#CORE\012\myhtml\Models\BaseModels\bin\Debug\BaseModels.pdb
-D:\C#CORE\012\myhtml\Models\BaseModels\obj\Debug\BaseModels.csprojAssemblyReference.cache
 D:\C#CORE\012\myhtml\Models\BaseModels\obj\Debug\BaseModels.csproj.CoreCompileInputs.cache
 D:\C#CORE\012\myhtml\Models\BaseModels\obj\Debug\BaseModels.dll
 D:\C#CORE\012\myhtml\Models\BaseModels\obj\Debug\BaseModels.pdb

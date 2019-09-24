@@ -60,10 +60,10 @@
 
             <td>
                 @* 補充: @num = i為Url參數的寫法，Controller/Action/ActionParameter中的參數就會是i，也就是第幾筆資料 *@
-                @Html.ActionLink("編輯", "Edit", "UserInfo", new { num = i }, null) |
-                @Html.ActionLink("詳細資料", "Details", "StudentList", new { @num = i }, null) |
+                @Html.ActionLink("編輯", "Edit", "StudentList", new { id = i }, null) |
+                @Html.ActionLink("詳細資料", "Details", "StudentList", new { id = i }, null) |
                 @* 補充: 最後一個參數onclick內可以放Url/method，以這個例子是回傳一個js method *@
-                @Html.ActionLink("刪除", "Delete", "StudentList", new { num = i }, new { @onclick = "return confirm('確定刪除?');" })
+                @Html.ActionLink("刪除", "Delete", "StudentList", new { id = i }, new { @onclick = "return confirm('確定刪除?');" })
             </td>
         </tr>
     }

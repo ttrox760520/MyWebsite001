@@ -5,71 +5,108 @@
 }
 
 <hr />
-@*@Model.Email*@
-@using (Html.BeginForm("Details", "UserInfo", FormMethod.Post, new  { @id = "form" }))
+
+@using (Html.BeginForm("Details", "StudentList", FormMethod.Post, new { @id = "form" }))
 {
     <pre>   
            學號：@Html.TextBoxFor(m => m.StudentID, new { disabled = "disabled" }) @Html.HiddenFor(m => m.StudentID)<br />
-           座號：@Html.TextBoxFor(m => m.ClassID, new {@class="座號" , disabled = "true" }) @Html.HiddenFor(m => m.ClassID)<br />
-           姓名：@Html.TextBoxFor(m => m.Name, new {@class="姓名" , disabled = "true" }) @Html.HiddenFor(m => m.Name)<br />
-           暱稱：@Html.TextBoxFor(m => m.Nickname, new {@class="暱稱" , disabled = "true"  }) @Html.HiddenFor(m => m.Nickname)<br />
-           電話：@Html.TextBoxFor(m => m.Phone, new {@class="電話" , disabled = "true"  }) @Html.HiddenFor(m => m.Phone)<br />
-           地址：@Html.TextBoxFor(m => m.Address, new {@class="地址" , disabled = "true"  }) @Html.HiddenFor(m => m.Address)<br />
-     緊急聯絡人：@Html.TextBoxFor(m => m.EmergencyContact, new {@class="緊急聯絡人" , disabled = "true"  }) @Html.HiddenFor(m => m.EmergencyContact)<br />
- 緊急連絡人電話：@Html.TextBoxFor(m => m.EmergencyPhone, new {@class="緊急連絡人電話" , disabled = "true"  }) @Html.HiddenFor(m => m.EmergencyPhone)<br />
-        <input type="submit" value="確定" id="submit" name="submit"> <input type="button" value="修改" id="edit" name="edit"><br />
-        <input type="submit"  value="確定修改" id="editsubmit" name="editsubmit" style="visibility:hidden">
-     </pre>
+           座號：@Html.TextBoxFor(m => m.ClassID, new {@class="ClassID" , disabled = "true" }) @Html.HiddenFor(m => m.ClassID)<br />
+           姓名：@Html.TextBoxFor(m => m.Name, new {@class="Name" , disabled = "true" }) @Html.HiddenFor(m => m.Name)<br />
+           暱稱：@Html.TextBoxFor(m => m.Nickname, new {@class="Nickname" , disabled = "true"  }) @Html.HiddenFor(m => m.Nickname)<br />
+           電話：@Html.TextBoxFor(m => m.Phone, new {@class="Phone" , disabled = "true"  }) @Html.HiddenFor(m => m.Phone)<br />
+           地址：@Html.TextBoxFor(m => m.Address, new {@class="Address" , disabled = "true"  }) @Html.HiddenFor(m => m.Address)<br />
+     緊急聯絡人：@Html.TextBoxFor(m => m.EmergencyContact, new {@class="EmergencyContact" , disabled = "true"  }) @Html.HiddenFor(m => m.EmergencyContact)<br />
+ 緊急連絡人電話：@Html.TextBoxFor(m => m.EmergencyPhone, new {@class="EmergencyPhone" , disabled = "true"  }) @Html.HiddenFor(m => m.EmergencyPhone)<br />
+               <input type="submit" value="確定" id="submit" name="submit">     <input type="button" value="修改" id="edit" name="edit"><br />
+               <input type="submit" value="確定修改" id="editsubmit" name="editsubmit" style="visibility:hidden">
+    </pre>
 }
 
 @section scripts{
-    @*<script type="text/javascript">
-        $(document).ready(function ()
-        {
-            var message = '@ViewData["Message"]';
-            if (message != null && message != '')
+    <script type="text/javascript">
+        $(document).ready(
+            function ()
             {
-            alert(message); //顯示Controller內設定的訊息
+                debugger
+
+                var message = '@ViewData["Message"]';
+                if (message != null && message != '') {
+                    alert(message);
+                }
             }
-        });
-        document.getElementById("edit").onclick = function () { EditFunction() };
-        function EditFunction()
-        { 判斷式有問題
-               $('#Id').attr("disabled", false);
-            $('#座號').attr("disabled", false);
-            $('#姓名').attr("disabled", false);
-            $('#暱稱').attr("disabled", false);
-            $('#電話').attr("disabled", false);
-            $('#地址').attr("disabled", false);
-            $('#緊急聯絡人').attr("disabled", false);
-            $('#緊急連絡人電話').attr("disabled", false);
+        );
+
+        document.getElementById("edit").onclick = function () { EditFunction()};
+        function EditFunction() {
+            $('#StudentID').attr("disabled", false);
+            $('#ClassID').attr("disabled", false);
+            $('#Name').attr("disabled", false);
+            $('#Nickname').attr("disabled", false);
+            $('#Phone').attr("disabled", false);
+            $('#Address').attr("disabled", false);
+            $('#EmergencyContact').attr("disabled", false);
+            $('#EmergencyPhone').attr("disabled", false);
             document.all["submit"].style.visibility = "hidden";
             document.all["edit"].style.visibility = "hidden";
             document.all["editsubmit"].style.visibility = "visible";
         };
-        document.getElementById("editsubmit").onclick = function () { return DataCompare();  };
-        function DataCompare()
+    </script>
+}
+
+
+@*document.getElementById("editsubmit").onclick = function () { return DataCompare();  };
+    function DataCompare()
+    {
+        var ID = '@Model.StudentID';
+        var NewID = $('#StudentID').val();
+        var ClassID = '@Model.ClassID';
+        var NewClassID = $('#ClassID').val();
+        var Name = '@Model.Name';
+        var NewName = $('#Name').val();
+        var Nickname = '@Model.Nickname';
+        var NewNickname = $('#Nickname').val();
+        var Phone = '@Model.Phone';
+        var NewPhone = $('#Phone').val();
+        var Address = '@Model.Address';
+        var NewAddress = $('#Address').val();
+        var EmergencyContact = '@Model.EmergencyContact');
+        var NewEmergencyContact = $('#EmergencyContact').val();
+        var EmergencyPhone = '@Model.EmergencyPhone';
+        var NewEmergencyPhone = $('#EmergencyPhone').val();
+        if (ID == NewID && ClassID == NewClassID && Name == NewName && Nickname == NewNickname && Phone == NewPhone && Address == NewAddress && EmergencyContact == NewEmergencyContact && EmergencyPhone == NewEmergencyPhone)
         {
-            var ID = '@Model.Id';
-            var NewID = $('#Id').val();
-            var Number = '@Model.座號';
-            var NewNumber = $('#座號').val();
-            var NickName = '@Model.暱稱';
-            var NewNickName = $('#暱稱').val();
-            var Phone = '@Model.電話';
-            var NewPhone = $('#電話').val();
-            var Address = '@Model.地址';
-            var NewAddress = $('#地址').val();
-            var Family = '@Model.緊急聯絡人';
-            var NewFamily = $('#緊急聯絡人').val();
-            var FamilyPhone = '@Model.緊急連絡人電話';
-            var NewFamilyPhone = $('#緊急連絡人電話').val();
-            if (ID == NewID && Number == NewNumber && NickName == NewNickName && Phone == NewPhone && Address == NewAddress && Family == NewFamily && FamilyPhone == NewFamilyPhone)
+            alert("資料完全相同,尚未修改!");
+            return false;
+        }
+    };*@
+
+
+
+@*
+
+    document.getElementById("editsubmit").onclick = function () { return DataCompare();  };
+    function DataCompare()
+    {
+        var ID = '@Model.EmergencyContact';
+        var NewID = $('#EmergencyContact').val();
+        var Number = '@Model.EmergencyContact';
+        var NewNumber = $('#ClassID').val();
+        var NickName = '@Model.Name';
+        var NewNickName = $('#Name').val();
+        var Phone = '@Model.Nickname';
+        var NewPhone = $('#Nickname').val();
+        var Address = '@Model.Phone';
+            var NewAddress = $('#Phone').val();
+      var Family = '@Model.Address');
+            var NewFamily = $('#Address').val();
+            var FamilyPhone = '@Model.EmergencyPhone';
+            var NewFamilyPhone = $('#EmergencyPhone').val();
+            if (StudentID == NewID && Number == NewNumber && NickName == NewNickName && Phone == NewPhone && Address == NewAddress && Family == NewFamily && FamilyPhone == NewFamilyPhone)
             {
-                alert("資料完全相同,尚未修改!");
-                return false;
-            }*@
-            @*var checkEmail = document.getElementById("Email").value;
+            alert("資料完全相同,尚未修改!");
+            return false;
+            }
+            var checkEmail = document.getElementById("Email").value;
             var EmailRule = /^([a-zA-Z0-9_\.\-\+])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             if (!EmailRule.test(checkEmail))
             {
@@ -77,6 +114,10 @@
                 return false;
             }
             檢查信箱格式
-        };
-    </script>*@
-}
+            };
+
+
+
+
+*@
+
