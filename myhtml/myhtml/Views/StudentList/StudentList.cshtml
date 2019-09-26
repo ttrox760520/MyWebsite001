@@ -1,13 +1,18 @@
 ﻿@model List<myhtml.Models.StudentList>
 @{
-    ViewBag.Title = "本班主人翁";
+   string Login = Session["Login"] != null ? @Session["Login"].ToString() :"0";
+   ViewBag.Title = "本班主人翁";
 }
 
 <h2>本班主人翁</h2>
 
-<p>
-    @Html.ActionLink("詳細資料", "StudentList_Complete", "StudentList")
-</p>
+@if (Login == "2")
+{
+    <p>
+        @Html.ActionLink("詳細資料", "StudentList_Complete", "StudentList")
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -22,7 +27,6 @@
         <th>
             @Html.DisplayName("姓名")
         </th>
-        <th></th>
     </tr>
     @for (int i = 0; i < Model.Count; i++)
     {
@@ -43,3 +47,4 @@
         </tr>
     }
 </table>
+

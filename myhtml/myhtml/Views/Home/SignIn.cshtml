@@ -3,22 +3,42 @@
     ViewBag.Title = "帳號登入或註冊";
 }
 
-    <h3>成員登入</h3>
+<h3>成員登入</h3>
 <hr>
+@using (Html.BeginForm("SignIn", "Home", FormMethod.Post, new { @id = "Create", @class = "form-signin" }))
+{
 <form class="form-signin">
-    <h4 class="h4 mb-4 font-weight-normal">登入身分</h4>
-    <select class="form-control" id="inputSelect" name="inputSelect">
-        <option value="1">管理員</option>
-        <option value="1">學生</option>
-        <option value="1">家長</option>
-    </select>
+    
     <h4 class="h4 mb-4 font-weight-normal">帳號</h4>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="請輸入帳號">
+    <label for="Account" class="sr-only">Account</label>
+    <input type="text" name="Account" id="Account" class="form-control" placeholder="請輸入帳號" required="">
+
     <h4 class="h4 mb-4 font-weight-normal">密碼</h4>
-    <label for="inputPassword" class="sr-only">Email address</label>
-    <input type="text" id="inputPassword" class="form-control" placeholder="請輸入密碼" required="">
+    <label for="Password" class="sr-only">Password</label>
+    <input type="text" name="Password" id="Password" class="form-control" placeholder="請輸入密碼" required="">
+
     <h5></h5>
-    <button class="btn btn-primary" type="button">登 入</button> &nbsp &nbsp<button class="btn btn-primary " type="button">註 冊</button>
+
+    <button class="btn btn-primary" type="submit">登 入</button> &nbsp &nbsp <button class="btn btn-primary " type="button" onclick="Register()">註 冊</button>
 
 </form>
+}
+@section scripts{
+    <script type="text/javascript">
+        
+        function Register() {
+            alert("註冊後須經過管理員認證通過後，才能正式啟用帳號！");
+            location.href = '@Url.Action("Register","Home")';
+            
+        };
+        var message = '@ViewData["Message"]';
+        if (message != null && message != '')
+        {
+            alert(message);
+        };
+
+
+
+
+    </script>
+}

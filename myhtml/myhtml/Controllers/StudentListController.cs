@@ -16,6 +16,7 @@ namespace myhtml.Controllers
         #region "List"
         public ActionResult StudentList()
         {
+            Session["Login"] = Session["Login"] != null ? Session["Login"].ToString() : "0";
             var db = new StudentDBEntities();
             List<Student> dbInfo = db.Student.ToList();
             var viewModelList = new List<StudentList>();

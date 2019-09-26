@@ -4,11 +4,11 @@
     <Key>
       <PropertyRef Name="Account" />
     </Key>
-    <Property Name="Account" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Identity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Memo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Identity" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Memo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="RealMember" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Student">
@@ -17,12 +17,12 @@
     </Key>
     <Property Name="StudentID" Type="Int32" Nullable="false" />
     <Property Name="ClassID" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Nickname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="EmergencyContact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="EmergencyPhone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nickname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencyContact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencyPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="StudentDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Member" EntityType="Self.Member" />

@@ -4,11 +4,11 @@
     <Key>
       <PropertyRef Name="Account" />
     </Key>
-    <Property Name="Account" Type="nchar" MaxLength="20" Nullable="false" />
-    <Property Name="Password" Type="nchar" MaxLength="20" Nullable="false" />
-    <Property Name="UserName" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Identity" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Memo" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Account" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Identity" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Memo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="RealMember" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Student">
@@ -17,12 +17,12 @@
     </Key>
     <Property Name="StudentID" Type="int" Nullable="false" />
     <Property Name="ClassID" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Nickname" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Phone" Type="nchar" MaxLength="20" />
-    <Property Name="Address" Type="nchar" MaxLength="50" />
-    <Property Name="EmergencyContact" Type="nchar" MaxLength="10" />
-    <Property Name="EmergencyPhone" Type="nchar" MaxLength="20" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nickname" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmergencyContact" Type="nvarchar" MaxLength="10" />
+    <Property Name="EmergencyPhone" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityContainer Name="StudentDBModelStoreContainer">
     <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />

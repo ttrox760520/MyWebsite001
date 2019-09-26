@@ -1,0 +1,72 @@
+﻿@model List<myhtml.Models.MemberList>
+@{
+    string Login = Session["Login"] != null ? @Session["Login"].ToString() :"0";
+    ViewBag.Title = "會員帳號清單";
+}
+
+<h2>會員帳號清單</h2>
+
+
+<p>
+    @Html.ActionLink("詳細資料", "StudentList_Complete", "StudentList")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("排序")
+        </th>
+        <th>
+            @Html.DisplayName("帳號")
+        </th>
+        <th>
+            @Html.DisplayName("密碼")
+        </th>
+        <th>
+            @Html.DisplayName("暱稱")
+        </th>
+        <th>
+            @Html.DisplayName("身分")
+        </th>
+        <th>
+            @Html.DisplayName("是否正式會員")
+        </th>
+        <th>
+            @Html.DisplayName("備註")
+        </th>
+    </tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.Label("seq", (i + 1).ToString())
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].Account)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].Password)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].Identity)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].RealMember)
+            </td>
+            <td>
+                @Html.DisplayFor(p => Model[i].Memo)
+            </td>
+            <td>
+                @* 補充: @num = i為Url參數的寫法，Controller/Action/ActionParameter中的參數就會是i，也就是第幾筆資料 *@
+                @Html.ActionLink("編輯", "Edit", "MemberList", new { id = i }, null) |
+                @Html.ActionLink("詳細資料", "Details", "MemberList", new { id = i }, null) |
+                @* 補充: 最後一個參數onclick內可以放Url/method，以這個例子是回傳一個js method *@
+                @Html.ActionLink("刪除", "Delete", "MemberList", new { id = i }, new { @onclick = "return confirm('確定刪除?');" })
+            </td>
+        </tr>
+    }
+</table>
+

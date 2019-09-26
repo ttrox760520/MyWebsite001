@@ -6,7 +6,7 @@
 }
 <h2>新增客戶資料</h2>
 <hr>
-@using (Html.BeginForm("Create", "StudentList", FormMethod.Post, new { id = "UserInfo" }))
+@using (Html.BeginForm("Create", "StudentList", FormMethod.Post, new { @id = "Create" }))
 {
     <pre>   
        學號：@Html.TextBoxFor(m => m.StudentID) <br />
@@ -20,11 +20,12 @@
 
 @section scripts{
     <script type="text/javascript">
-    var message = '@ViewData["Message"]';
-    if (message != null && message != '')
-    {
-        alert(message);
-    }
+        var message = '@ViewData["Message"]';
+        var Login = '@Session["Login"]';
+        if (message != null && message != '')
+        {
+            alert(message);
+        }
     //document.getElementById("submit").onclick = function ()
     //{
     //    return CheckEmail();
