@@ -5,6 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="StudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Date" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ContactOne" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactTwo" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactThree" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactFour" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactFive" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactSix" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactSeven" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactEight" Type="nvarchar" MaxLength="20" />
+          <Property Name="SeeDate" Type="nvarchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="Member">
           <Key>
             <PropertyRef Name="Account" />
@@ -30,6 +45,7 @@
           <Property Name="EmergencyPhone" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityContainer Name="StudentDBModelStoreContainer">
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -64,7 +80,23 @@
         <EntityContainer Name="StudentDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Member" EntityType="Self.Member" />
           <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="Contact" EntityType="StudentDBModel.Contact" />
         </EntityContainer>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Date" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ContactOne" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ContactTwo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ContactThree" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ContactFour" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ContactFive" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ContactSix" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ContactSeven" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ContactEight" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SeeDate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -94,6 +126,22 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="EmergencyContact" ColumnName="EmergencyContact" />
                 <ScalarProperty Name="EmergencyPhone" ColumnName="EmergencyPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="StudentDBModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="SeeDate" ColumnName="SeeDate" />
+                <ScalarProperty Name="ContactEight" ColumnName="ContactEight" />
+                <ScalarProperty Name="ContactSeven" ColumnName="ContactSeven" />
+                <ScalarProperty Name="ContactSix" ColumnName="ContactSix" />
+                <ScalarProperty Name="ContactFive" ColumnName="ContactFive" />
+                <ScalarProperty Name="ContactFour" ColumnName="ContactFour" />
+                <ScalarProperty Name="ContactThree" ColumnName="ContactThree" />
+                <ScalarProperty Name="ContactTwo" ColumnName="ContactTwo" />
+                <ScalarProperty Name="ContactOne" ColumnName="ContactOne" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

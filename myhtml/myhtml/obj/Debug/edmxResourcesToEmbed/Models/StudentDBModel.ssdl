@@ -1,5 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="StudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Date" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ContactOne" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactTwo" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactThree" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactFour" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactFive" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactSix" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactSeven" Type="nvarchar" MaxLength="20" />
+    <Property Name="ContactEight" Type="nvarchar" MaxLength="20" />
+    <Property Name="SeeDate" Type="nvarchar" MaxLength="20" />
+  </EntityType>
   <EntityType Name="Member">
     <Key>
       <PropertyRef Name="Account" />
@@ -25,6 +40,7 @@
     <Property Name="EmergencyPhone" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityContainer Name="StudentDBModelStoreContainer">
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

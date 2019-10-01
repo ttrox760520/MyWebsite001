@@ -12,21 +12,36 @@ namespace myhtml.Controllers
 {
     public partial class HomeController : BaseController  //partial可以用來切割過大的controller或model，原名稱後+_功能，以增加可讀性
     {
-        public ActionResult Index()
+        public ActionResult Index(string msg)
         {
+            if (!string.IsNullOrEmpty(msg))
+            {
+                ViewData["Message"] = msg;
+            }
             Session["Login"] = Session["Login"] != null ? Session["Login"].ToString() : "0";
-            Session["UserName"] = Session["UserName"] != null ? Session["Login"].ToString() : null;
-
-            //三元運算子      Session["Login"] = if判斷式 ? true : false
-            /*
-               if (Session["Login"] != null)
-                   Session["Login"] = Session["Login"].ToString()
-               else
-                   Session["Login"] = "0"
-             */
-            IndexModel model1 = new IndexModel();
-            
-            return View(model1);
+            Session["UserName"] = Session["UserName"] != null ? Session["UserName"].ToString() : null;
+           
+            var db = new StudentDBEntities();
+            List<Contact> ContactList = db.Contact.ToList();
+            string TheNewestDate = "0" ;
+            var tmpInfo = new Contact();
+            foreach (Contact New in ContactList)
+            {
+                if (Int32.Parse(New.Date) > Int32.Parse(TheNewestDate))
+                {
+                    TheNewestDate = New.Date;
+                    tmpInfo.SeeDate = New.SeeDate;
+                    tmpInfo.ContactOne = New.ContactOne;
+                    tmpInfo.ContactTwo = New.ContactTwo;
+                    tmpInfo.ContactThree = New.ContactThree;
+                    tmpInfo.ContactFour = New.ContactFour;
+                    tmpInfo.ContactFive = New.ContactFive;
+                    tmpInfo.ContactSix = New.ContactSix;
+                    tmpInfo.ContactSeven = New.ContactSeven;
+                    tmpInfo.ContactEight = New.ContactEight;
+                }
+            }
+            return View(tmpInfo);
         }
 
         public ActionResult About()
@@ -35,72 +50,12 @@ namespace myhtml.Controllers
 
             return View();
         }
-
-        public ActionResult Contact()
+        public ActionResult AboutMe()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
-        public ActionResult SignIn()
-        {
-            Session["Login"] = Session["Login"] != null ? Session["Login"].ToString() : "0";
-            if (Session["Login"].ToString() == "0")
-                return View();
-            else
-                ViewData["Message"] = "帳號已經登入!";
-            return View("Index");
-        }
-        [HttpPost]
-        public ActionResult SignIn(Member SignInMember)
-        {
-            var db = new StudentDBEntities();
-            List<Member> dbInfo = db.Member.ToList();
-            foreach (Member info in dbInfo)
-            {
-                if (info.Account == SignInMember.Account && info.Password == SignInMember.Password && info.RealMember == 1 && info.Account == "admin")
-                {
-                    ViewData["Message"] = info.UserName + "歡迎您回到本網站!";
-                    Session["Login"] = "2";
-                    Session["UserName"] = info.UserName;
-                    return View("Index");
-                }
-                if (info.Account == SignInMember.Account && info.Password == SignInMember.Password && info.RealMember == 1)
-                {
-                    ViewData["Message"] = info.UserName + "歡迎您回到本網站!";
-                    Session["Login"] = "1";
-                    Session["UserName"] = info.UserName;
-                    return View("Index");
-                }
-                if (info.Account == SignInMember.Account && info.Password == SignInMember.Password && info.RealMember == 0)
-                {
-                    ViewData["Message"] = "您的帳號尚未被驗證通過，暫時無法登入";
-                    return View();
-                }
-                if (info.Account == SignInMember.Account && info.Password != SignInMember.Password)
-                {
-                    ViewData["Message"] = "您的密碼輸入錯誤！";
-                    return View();
-                }
-                
-            }
-            ViewData["Message"] = "您的帳號輸入錯誤！";
-            return View();
-        }
-        public ActionResult SignOut()
-        {
-            Session["Login"] = Session["Login"] != null ? Session["Login"].ToString() : "0";
-            if (Session["Login"].ToString() == "0")
-            {
-                ViewData["Message"] = "帳號尚未登入!";
-                return View("Index");
-            }
-            string SignOutMessage = Session["UserName"].ToString() + "已登出，歡迎您下次再度來訪。";
-            Session["Login"] = "0";
-            Session["UserName"] = null;
-            ViewData["Message"] = SignOutMessage;
-            return View("Index");
-        }
+        
+        
         
 
     }

@@ -33,7 +33,7 @@ namespace myhtml.Controllers
             db.Member.Add(newmemberinfo);
             db.SaveChanges();
             ViewData["Message"] = "帳號已註冊成功，需經過帳號驗證方能使用";
-            return View("Index");
+            return RedirectToAction("Index", new { msg = ViewData["Message"] });
 
         }
         

@@ -1,4 +1,4 @@
-﻿@model myhtml.Models.Home.IndexModel
+﻿@model myhtml.Models.Contact
 @{
     ViewBag.Title = "首頁";
     string Login = Session["Login"] != null ? @Session["Login"].ToString() :"0";
@@ -15,24 +15,62 @@
     </FONT><p>
     <p><a href="https://www.facebook.com/profile.php?id=100000305285018&ref=bookmarks" class="btn btn-primary btn-lg">連結至Facebook &raquo;</a></p>
 </div>
-
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <h3>關於彥廷老師</h3>
         <p>
             我是陳彥廷，畢業於花蓮教育大學(國立東華大學)自然科學教育學系，若想深入了解我，請點選我的履歷。
         </p>
         <p><a class="btn btn-default" href="@Url.Action("AboutMe","Home")">我的履歷 &raquo;</a></p>
     </div>
-    <div class="col-md-6">
-        <h3>聯絡事項</h3>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="@Url.Action("Contact","Home")">每日聯絡事項 &raquo;</a></p>
-    </div>
     <div class="col-md-2">
-        <h3>作品集</h3>
-        <p>程式相關的作品集，請點選我的GitHub</p>
+        <h3>彥廷老師的作品集</h3>
+        <p>程式相關的作品與歷程，請點選我的GitHub</p>
         <p><a class="btn btn-default" href="https://github.com/ttrox760520">我的GitHub &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h3>聯絡事項</h3>
+        @if (@Model.SeeDate != null)
+        {<p>日期：@Model.SeeDate</p>}
+        @if (@Model.ContactOne != null)
+        {<p>1. @Model.ContactOne</p>}
+        @if (@Model.ContactTwo != null)
+        {<p>2. @Model.ContactTwo</p>}
+        @if (@Model.ContactThree != null)
+        {<p>3. @Model.ContactThree</p>}
+        @if (@Model.ContactFour != null)
+        {<p>4. @Model.ContactFour</p>}
+        @if (@Model.ContactFive != null)
+        {<p>5. @Model.ContactFive</p>}
+        @if (@Model.ContactSix != null)
+        {<p>6. @Model.ContactSix</p>}
+        @if (@Model.ContactSeven != null)
+        {<p>7. @Model.ContactSeven</p>}
+        @if (@Model.ContactEight != null)
+        {<p>8. @Model.ContactEight</p>}
+        <p><a class="btn btn-default" href="@Url.Action("Contact","Home")">更多聯絡事項 &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h3>學生照片</h3>
+        @if (@Model.SeeDate != null)
+        {<p>日期：@Model.SeeDate</p>}
+        @if (@Model.ContactOne != null)
+        {<p>1. @Model.ContactOne</p>}
+        @if (@Model.ContactTwo != null)
+        {<p>2. @Model.ContactTwo</p>}
+        @if (@Model.ContactThree != null)
+        {<p>3. @Model.ContactThree</p>}
+        @if (@Model.ContactFour != null)
+        {<p>4. @Model.ContactFour</p>}
+        @if (@Model.ContactFive != null)
+        {<p>5. @Model.ContactFive</p>}
+        @if (@Model.ContactSix != null)
+        {<p>6. @Model.ContactSix</p>}
+        @if (@Model.ContactSeven != null)
+        {<p>7. @Model.ContactSeven</p>}
+        @if (@Model.ContactEight != null)
+        {<p>8. @Model.ContactEight</p>}
+        <p><a class="btn btn-default" href="@Url.Action("Contact","Home")">連結至相簿 &raquo;</a></p>
     </div>
 
 

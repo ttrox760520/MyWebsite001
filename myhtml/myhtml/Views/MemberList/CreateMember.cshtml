@@ -1,0 +1,49 @@
+﻿@model myhtml.Models.Member
+@* ↑ 宣告ViewModel，請注意一個View只會對應到一個Model *@
+@{
+    ViewBag.Title = "新增會員資料";@ViewBag.newuserid
+}
+<h2>新增會員資料</h2>
+<hr>
+@using (Html.BeginForm("CreateMember", "MemberList", FormMethod.Post, new { @id = "Create" }))
+{
+    <h4 class="h4 mb-4 font-weight-normal">請選擇身分</h4>
+    <select class="form-control" id="Identity" name="Identity"required>
+        <option value="">請選擇</option>
+        <option value="學生">學生</option>
+        <option value="家長">家長</option>
+        <option value="管理員">管理員</option>
+    </select>
+    <h4 class="h4 mb-4 font-weight-normal">帳號</h4>
+    <label for="Account" class="sr-only">Account</label>
+    <input type="text" name="Account" id="Account" class="form-control" placeholder="請輸入帳號" required="">
+
+    <h4 class="h4 mb-4 font-weight-normal">密碼</h4>
+    <label for="Password" class="sr-only">Password</label>
+    <input type="text" name="Password" id="Password" class="form-control" placeholder="請輸入密碼" required="">
+
+    <h4 class="h4 mb-4 font-weight-normal">暱稱</h4>
+    <label for="UserName" class="sr-only">UserName</label>
+    <input type="text" name="UserName" id="UserName" class="form-control" placeholder="請輸入暱稱" required="">
+
+    <h4 class="h4 mb-4 font-weight-normal">備註</h4>
+    <textarea rows="3" name="Memo" cols="40" placeholder="請填寫詳細身分，以供日後辨識用。" required=""></textarea>
+    
+    <h4 class="h4 mb-4 font-weight-normal">是否為正式會員</h4>
+    <h4><input type="radio" name="RealMember" value="1" required="">是</h4> <h4><input type="radio" name="RealMember" value="0" required="">否</h4>
+
+    <input type="submit" value="確定" id="submit">
+    <input type="reset" value="清除">
+    <br />
+}
+
+@section scripts{
+    <script type="text/javascript">
+        var message = '@ViewData["Message"]';
+        var Login = '@Session["Login"]';
+        if (message != null && message != '')
+        {
+            alert(message);
+        }
+    </script>
+}

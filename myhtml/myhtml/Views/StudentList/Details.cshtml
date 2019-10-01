@@ -28,8 +28,7 @@
         $(document).ready(
             function ()
             {
-                debugger
-
+                
                 var message = '@ViewData["Message"]';
                 if (message != null && message != '') {
                     alert(message);
@@ -39,7 +38,7 @@
 
         document.getElementById("edit").onclick = function () { EditFunction()};
         function EditFunction() {
-            $('#StudentID').attr("disabled", false);
+            
             $('#ClassID').attr("disabled", false);
             $('#Name').attr("disabled", false);
             $('#Nickname').attr("disabled", false);
@@ -51,35 +50,36 @@
             document.all["edit"].style.visibility = "hidden";
             document.all["editsubmit"].style.visibility = "visible";
         };
+
+        document.getElementById("editsubmit").onclick = function () { return DataCompare()};
+        function DataCompare(){
+            
+            var ClassID = '@Model.ClassID';
+            var NewClassID = $('#ClassID').val();
+            var Name = '@Model.Name';
+            var NewName = $('#Name').val();
+            var Nickname = '@Model.Nickname';
+            var NewNickname = $('#Nickname').val();
+            var Phone = '@Model.Phone';
+            var NewPhone = $('#Phone').val();
+            var Address = '@Model.Address';
+            var NewAddress = $('#Address').val();
+            var EmergencyContact = '@Model.EmergencyContact';
+            var NewEmergencyContact = $('#EmergencyContact').val();
+            var EmergencyPhone = '@Model.EmergencyPhone';
+            var NewEmergencyPhone = $('#EmergencyPhone').val();
+            if ( ClassID == NewClassID && Name == NewName && Nickname == NewNickname && Phone == NewPhone && Address == NewAddress && EmergencyContact == NewEmergencyContact && EmergencyPhone == NewEmergencyPhone)
+            {
+                alert("資料完全相同,尚未修改!");
+                return false;
+            }
+        };
+
     </script>
 }
 
 
-@*document.getElementById("editsubmit").onclick = function () { return DataCompare();  };
-    function DataCompare()
-    {
-        var ID = '@Model.StudentID';
-        var NewID = $('#StudentID').val();
-        var ClassID = '@Model.ClassID';
-        var NewClassID = $('#ClassID').val();
-        var Name = '@Model.Name';
-        var NewName = $('#Name').val();
-        var Nickname = '@Model.Nickname';
-        var NewNickname = $('#Nickname').val();
-        var Phone = '@Model.Phone';
-        var NewPhone = $('#Phone').val();
-        var Address = '@Model.Address';
-        var NewAddress = $('#Address').val();
-        var EmergencyContact = '@Model.EmergencyContact');
-        var NewEmergencyContact = $('#EmergencyContact').val();
-        var EmergencyPhone = '@Model.EmergencyPhone';
-        var NewEmergencyPhone = $('#EmergencyPhone').val();
-        if (ID == NewID && ClassID == NewClassID && Name == NewName && Nickname == NewNickname && Phone == NewPhone && Address == NewAddress && EmergencyContact == NewEmergencyContact && EmergencyPhone == NewEmergencyPhone)
-        {
-            alert("資料完全相同,尚未修改!");
-            return false;
-        }
-    };*@
+
 
 
 

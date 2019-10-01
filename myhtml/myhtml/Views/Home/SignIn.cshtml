@@ -37,7 +37,28 @@
             alert(message);
         };
 
+        @*function test() {
+            var Account = $('#Account').val();
 
+            if (Account == null || Account == "") {
+                alert("#$$");
+                return false;
+                
+            }
+
+
+
+
+            $.ajax({
+                url:@Url.Action("ActionName", "controllerName"),
+                data: {Account:Account},
+                success: function (result)
+                {
+            $("#div1").html(result);
+                }});
+
+
+        }*@
 
 
     </script>

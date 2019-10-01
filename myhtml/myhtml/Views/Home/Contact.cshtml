@@ -1,17 +1,67 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@model List<myhtml.Models.ContactList>
+@{
+    string Login = Session["Login"] != null ? @Session["Login"].ToString() : "0";
+    ViewBag.Title = "本班主人翁";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<h2>所有聯絡事項</h2>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+@if (Login == "2")
+{
+    <p>
+        @Html.ActionLink("詳細資料", "StudentList_Complete", "StudentList")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("日期")
+        </th>
+        <th>
+            @Html.DisplayName("聯絡事項")
+        </th>
+    </tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(p => Model[i].SeeDate)
+            </td>
+            <td>
+                @if (Model[i].ContactOne != null)
+                {
+                    <span>1.</span>@Html.DisplayFor(p => Model[i].ContactOne)<br>
+                }
+                @if (Model[i].ContactTwo != null)
+                {
+                    <span>2.</span>@Html.DisplayFor(p => Model[i].ContactTwo)<br>
+                }
+                @if (Model[i].ContactThree != null)
+                {
+                    <span>3.</span>@Html.DisplayFor(p => Model[i].ContactThree)<br>
+                }
+                @if (Model[i].ContactFour != null)
+                {
+                    <span>4.</span>@Html.DisplayFor(p => Model[i].ContactFour)<br>
+                }
+                @if (Model[i].ContactFive != null)
+                {
+                    <span>5.</span>@Html.DisplayFor(p => Model[i].ContactFive)<br>
+                }
+                @if (Model[i].ContactSix != null)
+                {
+                    <span>6.</span>@Html.DisplayFor(p => Model[i].ContactSix)<br>
+                }
+                @if (Model[i].ContactSeven != null)
+                {
+                    <span>7.</span>@Html.DisplayFor(p => Model[i].ContactSeven)<br>
+                }
+                @if (Model[i].ContactEight != null)
+                {
+                    <span>8.</span>@Html.DisplayFor(p => Model[i].ContactEight)<br>
+                }
+            </td>
+           
+        </tr>
+    }
+</table>

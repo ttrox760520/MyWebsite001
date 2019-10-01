@@ -2,15 +2,14 @@
 @* ↑ 宣告ViewModel，請注意一個View只會對應到一個Model *@
 
 @{
-    ViewBag.Title = "編輯學生資料";@ViewBag.newuserid
+    ViewBag.Title = "編輯學生資料";
 }
 <h2>@ViewBag.Title</h2>
 <hr>
 @using (Html.BeginForm("Edit", "StudentList", FormMethod.Post, new { @id = "StudentList" }))
 {
-
     <pre>   
-           學號：@Html.TextBoxFor(m => m.StudentID) @Html.HiddenFor(m => m.StudentID)<br />
+           學號：@Html.TextBoxFor(m => m.StudentID, new { disabled = "disabled" }) @Html.HiddenFor(m => m.StudentID)<br />
            座號：@Html.TextBoxFor(m => m.ClassID) @Html.HiddenFor(m => m.ClassID)<br />
            姓名：@Html.TextBoxFor(m => m.Name) @Html.HiddenFor(m => m.Name)<br />
            暱稱：@Html.TextBoxFor(m => m.Nickname) @Html.HiddenFor(m => m.Nickname)<br />
@@ -18,7 +17,8 @@
            地址：@Html.TextBoxFor(m => m.Address) @Html.HiddenFor(m => m.Address)<br />
      緊急聯絡人：@Html.TextBoxFor(m => m.EmergencyContact) @Html.HiddenFor(m => m.EmergencyContact)<br />
  緊急連絡人電話：@Html.TextBoxFor(m => m.EmergencyPhone) @Html.HiddenFor(m => m.EmergencyPhone)<br />
-       <input type="submit" id="submit" value="確定">  <input type="reset" value="取消變更"><br />
+       <input type="submit" id="submit" value="確定">  <input type="reset" value="還原">  <br />
+       <input type="button" value="取消變更" id="Cancel" name="Cancel" onclick="location.href='@Url.Action("StudentList_Complete","StudentList")'">
     </pre>
     <input type="hidden" name="UserID" value=@Model.StudentID>
 }
@@ -35,15 +35,9 @@
             alert(message); //顯示Controller內設定的訊息
         }
         });
-        document.getElementById("submit").onclick = function ()
-        {
-           return Check();
-        };
-
-        function Check()
-        {
-            var ID = '@Model.StudentID';
-            var NewID = $('#StudentID').val();
+        document.getElementById("submit").onclick = function () { return DataCompare()};
+        function DataCompare() {
+            
             var ClassID = '@Model.ClassID';
             var NewClassID = $('#ClassID').val();
             var Name = '@Model.Name';
@@ -54,16 +48,16 @@
             var NewPhone = $('#Phone').val();
             var Address = '@Model.Address';
             var NewAddress = $('#Address').val();
-            var EmergencyContact = '@Model.EmergencyContact');
+            var EmergencyContact = '@Model.EmergencyContact';
             var NewEmergencyContact = $('#EmergencyContact').val();
             var EmergencyPhone = '@Model.EmergencyPhone';
             var NewEmergencyPhone = $('#EmergencyPhone').val();
-            if (ID == NewID && ClassID == NewClassID && Name == NewName && Nickname == NewNickname && Phone == NewPhone && Address == NewAddress && EmergencyContact == NewEmergencyContact && EmergencyPhone == NewEmergencyPhone)
+            if ( ClassID == NewClassID && Name == NewName && Nickname == NewNickname && Phone == NewPhone && Address == NewAddress && EmergencyContact == NewEmergencyContact && EmergencyPhone == NewEmergencyPhone)
             {
-            alert("資料完全相同,尚未修改!");
-            return false;
+                alert("資料完全相同,尚未修改!");
+                return false;
             }
-        }
+        };
 
     </script>
 }

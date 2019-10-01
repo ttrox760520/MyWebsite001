@@ -27,5 +27,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Contact">
+      <EntityTypeMapping TypeName="StudentDBModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="SeeDate" ColumnName="SeeDate" />
+          <ScalarProperty Name="ContactEight" ColumnName="ContactEight" />
+          <ScalarProperty Name="ContactSeven" ColumnName="ContactSeven" />
+          <ScalarProperty Name="ContactSix" ColumnName="ContactSix" />
+          <ScalarProperty Name="ContactFive" ColumnName="ContactFive" />
+          <ScalarProperty Name="ContactFour" ColumnName="ContactFour" />
+          <ScalarProperty Name="ContactThree" ColumnName="ContactThree" />
+          <ScalarProperty Name="ContactTwo" ColumnName="ContactTwo" />
+          <ScalarProperty Name="ContactOne" ColumnName="ContactOne" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

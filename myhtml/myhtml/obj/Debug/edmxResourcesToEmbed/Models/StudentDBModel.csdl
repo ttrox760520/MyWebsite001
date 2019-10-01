@@ -27,5 +27,21 @@
   <EntityContainer Name="StudentDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Member" EntityType="Self.Member" />
     <EntitySet Name="Student" EntityType="Self.Student" />
+    <EntitySet Name="Contact" EntityType="StudentDBModel.Contact" />
   </EntityContainer>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactOne" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactTwo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactThree" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactFour" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactFive" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactSix" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactSeven" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEight" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SeeDate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

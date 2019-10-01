@@ -136,13 +136,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\HomeController_AboutMe.cs" />
+    <Compile Include="Controllers\HomeController_Contact.cs" />
     <Compile Include="Controllers\HomeController_Register.cs" />
+    <Compile Include="Controllers\HomeController_SignInOut.cs" />
     <Compile Include="Controllers\MemberListController.cs" />
     <Compile Include="Controllers\StudentListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>StudentDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactList.cs" />
     <Compile Include="Models\Home\IndexModel.cs" />
     <Compile Include="Models\Member.cs">
       <DependentUpon>StudentDBModel.tt</DependentUpon>
@@ -231,9 +236,12 @@
     <Content Include="Views\StudentList\Edit.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\MemberList\MemberList.cshtml" />
+    <Content Include="Views\MemberList\CreateMember.cshtml" />
+    <Content Include="Views\MemberList\EditMember.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\HomeController_SignInOut\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

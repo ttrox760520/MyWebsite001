@@ -1,0 +1,81 @@
+﻿@model myhtml.Models.Member
+@* ↑ 宣告ViewModel，請注意一個View只會對應到一個Model *@
+
+@{
+    ViewBag.Title = "修改會員資料";
+}
+<h2>@ViewBag.Title</h2>
+<hr>
+@using (Html.BeginForm("EditMember", "MemberList", FormMethod.Post, new { @id = "StudentList" }))
+{
+    <p>
+        身分：
+        <select class="form-control" id="Identity" name="Identity" value="@Model.Identity" required >
+            <option value="">請選擇</option>
+            <option value="學生">學生</option>
+            <option value="家長">家長</option>
+            <option value="管理員">管理員</option>
+        </select>
+    </p>
+    <p>
+        帳號：@Html.TextBoxFor(m => m.Account, new { disabled = "disabled" }) @Html.HiddenFor(m => m.Account)
+    </p>
+    <p>
+        密碼：@Html.TextBoxFor(m => m.Password) @Html.HiddenFor(m => m.Password)
+    </p>
+    <p>
+        暱稱：@Html.TextBoxFor(m => m.UserName) @Html.HiddenFor(m => m.UserName)
+    </p>
+    <p>
+        備註：
+    </p>
+    <p>
+        @Html.TextAreaFor(m => m.Memo) @Html.HiddenFor(m => m.Memo)
+    </p>
+    <p>
+        是否為正式會員：<input type="radio" name="RealMember" id="RealMember" value="1" required="" >是 <input type="radio" id="RealMember" name="RealMember" value="0" required="">否
+    </p>
+    <input type="submit" id="submit" value="確定">
+    <input type="reset" value="還原">
+    <br />
+    <input type="button" value="取消變更" id="Cancel" name="Cancel" onclick="location.href='@Url.Action("MemberList","MemberList")'">
+    <input type="hidden" name="UserID" value=@Model.Account>
+    <input type="hidden" name="UserID" value=@Model.Identity>
+    <input type="hidden" name="UserID" value=@Model.RealMember>
+}
+
+
+@section scripts{
+    <script>
+        var Login = '@Session["Login"]';
+        $(document).ready(function ()
+        {
+        var message = '@ViewData["Message"]'; //宣告message接controller內設定的Message
+        if (message != null && message != '') //如果訊息不是 無/空字串
+        {
+            alert(message); //顯示Controller內設定的訊息
+        }
+        });
+        document.getElementById("submit").onclick = function () { return DataCompare()};
+        function DataCompare() {
+            debugger
+            var Password = '@Model.Password';
+            var NewPassword = $('#Password').val();
+            var UserName = '@Model.UserName';
+            var NewUserName = $('#UserName').val();
+            var Identity = '@Model.Identity';
+            var NewIdentity = $('#Identity').val();
+            var Memo = '@Model.Memo';
+            var NewMemo = $('#Memo').val();
+            var RealMember = '@Model.RealMember';
+            var NewRealMember = $('#RealMember').val();
+
+            if ( Password == NewPassword && UserName == NewUserName && Identity == NewIdentity && Memo == NewMemo && RealMember == NewRealMember)
+            {
+                alert("資料完全相同,尚未修改!");
+                return false;
+            }
+        };
+
+    </script>
+}

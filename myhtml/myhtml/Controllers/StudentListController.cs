@@ -85,7 +85,7 @@ namespace myhtml.Controllers
             newuserinfo = info;
             db.Student.Add(newuserinfo);
             db.SaveChanges();
-            return RedirectToAction("StudentList");
+            return RedirectToAction("StudentList_Complete");
 
         }
         #endregion "Create"
@@ -115,6 +115,7 @@ namespace myhtml.Controllers
         {
             var db = new StudentDBEntities();
             List<Student> dbInfo = db.Student.ToList();
+            
             try
             {
                 dbInfo[int.Parse(id)].StudentID = info.StudentID;
@@ -131,7 +132,7 @@ namespace myhtml.Controllers
             catch
             {
                 ViewData["Message"] = "修改出錯了唷!";
-                return View("Edit");
+                return RedirectToAction("Edit" , new { msg = ViewData["Message"] });
             }
         }
 
@@ -146,12 +147,12 @@ namespace myhtml.Controllers
                 List<Student> dbInfo = db.Student.ToList();
                 db.Student.Remove(dbInfo[int.Parse(id)]);
                 db.SaveChanges();
-                return RedirectToAction("StudentList");
+                return RedirectToAction("StudentList_Complete");
             }
             catch
             {
                 ViewData["Message"] = "刪除失敗了唷!";
-                return View("UserList");
+                return RedirectToAction("Detail" , new { msg = ViewData["Message"] });
             }
         }
         #endregion "Delete"
@@ -184,6 +185,19 @@ namespace myhtml.Controllers
         {
             var db = new StudentDBEntities();
             List<Student> dbInfo = db.Student.ToList();
+            //int times = 0;
+            //foreach (Student theinfo in dbInfo)
+            //{
+            //    if (times != Int32.Parse(id))
+            //    {
+            //        if (dbInfo[int.Parse(id)].StudentID.Equals(theinfo.StudentID))
+            //        {
+            //            ViewData["Message"] = "學生學號重複，請修改學號！";
+            //            return View("Details", new { msg = ViewData["Message"] });
+            //        }
+            //    }
+            //    times++;
+            //}
             try
             {
                 dbInfo[int.Parse(id)].StudentID = info.StudentID;
@@ -200,7 +214,7 @@ namespace myhtml.Controllers
             catch
             {
                 ViewData["Message"] = "修改出錯了唷!";
-                return View("Details");
+                return View("Details", new { msg = ViewData["Message"] });
             }
 
 

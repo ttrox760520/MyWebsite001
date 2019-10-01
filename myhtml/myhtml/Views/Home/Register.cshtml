@@ -8,7 +8,8 @@
 @using (Html.BeginForm("NewRegister", "Home", FormMethod.Post, new { @id = "Create", @class = "form-signin" }))
 {
     <h4 class="h4 mb-4 font-weight-normal">請選擇身分</h4>
-    <select class="form-control" id="inputSelect" name="Identity">
+    <select class="form-control" id="Identity" name="Identity"required>
+        <option value="">請選擇</option>
         <option value="學生">學生</option>
         <option value="家長">家長</option>
     </select>
