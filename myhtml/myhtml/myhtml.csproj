@@ -238,10 +238,11 @@
     <Content Include="Views\MemberList\MemberList.cshtml" />
     <Content Include="Views\MemberList\CreateMember.cshtml" />
     <Content Include="Views\MemberList\EditMember.cshtml" />
+    <Content Include="Views\Home\CreateContact.cshtml" />
+    <Content Include="Views\Home\EditContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\HomeController_SignInOut\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,0 +1,85 @@
+﻿@model myhtml.Models.Contact
+@{
+    ViewBag.Title = "編輯聯絡簿";
+}
+<h2>@ViewBag.Title</h2>
+<hr>
+@using (Html.BeginForm("EditContact", "Home", FormMethod.Post, new { @id = "Create" }))
+{
+    <p>
+        編號：@Html.TextBoxFor(m => m.Date, new { required = "required", disabled = "disabled" }) @Html.HiddenFor(m => m.Date)
+    </p>
+    <p>
+        日期：@Html.TextBoxFor(m => m.SeeDate, new { required = "required", disabled = "disabled" }) @Html.HiddenFor(m => m.SeeDate)
+    </p>
+    <p><span style="color:red;">＊下列聯絡事項，請勿填入編號，另需填入標點＊</span></p>
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項1</h5>
+    <textarea rows="3" name="ContactOne" id="ContactOne" cols="40">@Model.ContactOne</textarea> @Html.HiddenFor(m => m.ContactOne)
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項2</h5>
+    <textarea rows="3" name="ContactTwo" id="ContactTwo" cols="40">@Model.ContactTwo</textarea> @Html.HiddenFor(m => m.ContactTwo)
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項3 </h5>
+    <textarea rows="3" name="ContactThree" id="ContactThree" cols="40">@Model.ContactThree</textarea> @Html.HiddenFor(m => m.ContactThree)
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項4</h5>
+    <textarea rows="3" name="ContactFour" id="ContactFour" cols="40" >@Model.ContactFour</textarea> @Html.HiddenFor(m => m.ContactFour)
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項5</h5>
+    <textarea rows="3" name="ContactFive" id="ContactFive" cols="40">@Model.ContactFive</textarea> @Html.HiddenFor(m => m.ContactFive)
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項6</h5>
+    <textarea rows="3" name="ContactSix" id="ContactSix" cols="40">@Model.ContactSix</textarea> @Html.HiddenFor(m => m.ContactSix)
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項7</h5>
+    <textarea rows="3" name="ContactSeven" id="ContactSeven" cols="40">@Model.ContactSeven</textarea> @Html.HiddenFor(m => m.ContactSeven)
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項8</h5>
+    <textarea rows="3" name="ContactEight" id="ContactEight" cols="40">@Model.ContactEight</textarea> @Html.HiddenFor(m => m.ContactEight)
+    <br />
+
+    <input type="submit" value="確定" id="submit">
+    <input type="reset" value="清除">
+    <br />
+}
+
+
+@section scripts{
+    <script>
+        var Login = '@Session["Login"]';
+        $(document).ready(function ()
+        {
+        var message = '@ViewData["Message"]'; //宣告message接controller內設定的Message
+        if (message != null && message != '') //如果訊息不是 無/空字串
+        {
+            alert(message); //顯示Controller內設定的訊息
+        }
+        });
+        document.getElementById("submit").onclick = function () { return DataCompare()};
+        function DataCompare() {
+
+            var C1 = '@Model.ContactOne';
+            var NewC1 = $('#ContactOne').val();
+            var C2 = '@Model.ContactTwo';
+            var NewC2 = $('#ContactTwo').val();
+            var C3 = '@Model.ContactThree';
+            var NewC3 = $('#ContactThree').val();
+            var C4 = '@Model.ContactFour';
+            var NewC4 = $('#ContactFour').val();
+            var C5 = '@Model.ContactFive';
+            var NewC5 = $('#ContactFive').val();
+            var C6 = '@Model.ContactSix';
+            var NewC6 = $('#ContactSix').val();
+            var C7 = '@Model.ContactSeven';
+            var NewC7 = $('#ContactSeven').val();
+            var C8 = '@Model.ContactEight';
+            var NewC8 = $('#ContactEight').val();
+            if (C1 == NewC1 && C2 == NewC2 && C3 == NewC3 && C4 == NewC4 && C5 == NewC5 && C6 == NewC6 && C7 == NewC7 && C8 == NewC8)
+            {
+                alert("資料完全相同,尚未修改!");
+                return false;
+            }
+        };
+
+    </script>
+}

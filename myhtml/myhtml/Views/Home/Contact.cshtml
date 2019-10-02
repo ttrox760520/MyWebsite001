@@ -9,11 +9,14 @@
 @if (Login == "2")
 {
     <p>
-        @Html.ActionLink("詳細資料", "StudentList_Complete", "StudentList")
+        @Html.ActionLink("新增", "CreateContact", "Home")
     </p>
 }
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayName("編號")
+        </th>
         <th>
             @Html.DisplayName("日期")
         </th>
@@ -24,6 +27,9 @@
     @for (int i = 0; i < Model.Count; i++)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(p => Model[i].Date)
+            </td>
             <td>
                 @Html.DisplayFor(p => Model[i].SeeDate)
             </td>
@@ -61,7 +67,26 @@
                     <span>8.</span>@Html.DisplayFor(p => Model[i].ContactEight)<br>
                 }
             </td>
-           
+            @if(Login =="2")
+             {
+                <td>
+                @Html.ActionLink("編輯", "EditContact", "Home", new { id = i }, null) |
+                @Html.ActionLink("刪除", "DeleteContact", "Home", new { id = i }, new { @onclick = "return confirm('確定刪除?');" })
+                </td>
+             }
+            
         </tr>
     }
 </table>
+
+
+@section scripts{
+    <script type="text/javascript">
+        var message = '@ViewData["Message"]';
+        var Login = '@Session["Login"]';
+        if (message != null && message != '')
+        {
+            alert(message);
+        }
+    </script>
+}

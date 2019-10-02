@@ -1,0 +1,82 @@
+﻿@model myhtml.Models.Contact
+@{
+    ViewBag.Title = "新增聯絡簿";
+}
+<h2>@ViewBag.Title</h2>
+<hr>
+@using (Html.BeginForm("CreateContact", "Home", FormMethod.Post, new { @id = "Create" }))
+{
+    <p>
+        編號：@Html.TextBoxFor(m => m.Date, new { required="required" }) @Html.HiddenFor(m => m.Date)
+        <span style="color:red;">例:2019年1月1日，請輸入20190101，方能正確顯示於首頁。</span>
+    </p>
+    <p>
+        日期：@Html.TextBoxFor(m => m.SeeDate, new {required="required"}) @Html.HiddenFor(m => m.SeeDate)
+        <span style="color:red;">例:2019年1月1日，請輸入2019/01/01，方能正確顯示於首頁。</span>
+    </p>
+    <p ><span style="color:red;">＊下列聯絡事項，請勿填入編號，另需填入標點＊</span></p>
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項1</h5>
+    <textarea rows="3" name="ContactOne" id="ContactOne" cols="40"></textarea>
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項2</h5>
+    <textarea rows="3" name="ContactTwo" id="ContactTwo" cols="40"></textarea>
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項3</h5>
+    <textarea rows="3" name="ContactThree" id="ContactThree" cols="40"></textarea>
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項4</h5>
+    <textarea rows="3" name="ContactFour" id="ContactFour" cols="40"></textarea>
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項5</h5>
+    <textarea rows="3" name="ContactFive" id="ContactFive" cols="40"></textarea>
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項6</h5>
+    <textarea rows="3" name="ContactSix" id="ContactSix" cols="40"></textarea>
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項7</h5>
+    <textarea rows="3" name="ContactSeven" id="ContactSeven" cols="40"></textarea>
+
+    <h5 class="h5 mb-5 font-weight-normal">聯絡事項8</h5>
+    <textarea rows="3" name="ContactEight" id="ContactEight" cols="40"></textarea><br />
+
+    <input type="submit" value="確定" id="submit" >
+    <input type="reset" value="清除">
+    <br />
+}
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        var message = '@ViewData["Message"]';
+        var Login = '@Session["Login"]';
+        if (message != null && message != '')
+        {
+            alert(message);
+        };
+        document.getElementById("submit").onclick = function ()
+        {
+            return  CheckDate();
+        };
+        function CheckDate()
+        {
+            debugger
+            var result = true;
+            var checkdate = document.getElementById("Date").value;
+            var DateRule = /^\+?[1-9][0-9]{7}$/;
+            if (!DateRule.test(checkdate))
+            {
+                alert("編號格式錯誤");
+                return false;
+            }
+            var checkseedata = document.getElementById("SeeDate").value;
+            var SeeDateRule = /^((19|20|21|22)[0-9]{2}[- /.](0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01]))*$/;
+            if (!SeeDateRule.test(checkseedata))
+            {
+                alert("日期格式錯誤");
+                return false;
+            }
+        }
+        
+    </script>
+}
