@@ -22,14 +22,16 @@ namespace myhtml.Controllers
             Session["UserName"] = Session["UserName"] != null ? Session["UserName"].ToString() : null;
            
             var db = new StudentDBEntities();
+            List<RunningMessage> RunMessage = db.RunningMessage.ToList();
             List<Contact> ContactList = db.Contact.ToList();
-            string TheNewestDate = "0" ;
-            var tmpInfo = new Contact();
+            string TheNewestDate = "0" ; //預設0的日期資料，以供比較日期資料
+            var tmpInfo = new ContactList();
             foreach (Contact New in ContactList)
             {
-                if (Int32.Parse(New.Date) > Int32.Parse(TheNewestDate))
+                if (Int32.Parse(New.Date) > Int32.Parse(TheNewestDate)) //比較日期大小,找出數字最大(最新)的聯絡簿資料
                 {
                     TheNewestDate = New.Date;
+                    tmpInfo.Date = New.Date;
                     tmpInfo.SeeDate = New.SeeDate;
                     tmpInfo.ContactOne = New.ContactOne;
                     tmpInfo.ContactTwo = New.ContactTwo;
@@ -41,14 +43,17 @@ namespace myhtml.Controllers
                     tmpInfo.ContactEight = New.ContactEight;
                 }
             }
+            tmpInfo.RunningMessage = RunMessage[0].Message;
             return View(tmpInfo);
         }
-
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult ChangeRunningMessage(ContactList NewMessage)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var db = new StudentDBEntities();
+            List<RunningMessage> RunMessage = db.RunningMessage.ToList();
+            RunMessage[0].Message = NewMessage.RunningMessage;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
         public ActionResult AboutMe()
         {

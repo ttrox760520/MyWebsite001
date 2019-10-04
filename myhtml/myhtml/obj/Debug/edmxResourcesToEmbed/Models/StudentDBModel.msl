@@ -43,5 +43,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RunningMessage">
+      <EntityTypeMapping TypeName="StudentDBModel.RunningMessage">
+        <MappingFragment StoreEntitySet="RunningMessage">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

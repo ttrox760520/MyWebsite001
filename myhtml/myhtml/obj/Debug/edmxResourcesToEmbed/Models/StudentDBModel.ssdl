@@ -26,6 +26,13 @@
     <Property Name="Memo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="RealMember" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="RunningMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Student">
     <Key>
       <PropertyRef Name="StudentID" />
@@ -42,6 +49,7 @@
   <EntityContainer Name="StudentDBModelStoreContainer">
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RunningMessage" EntityType="Self.RunningMessage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

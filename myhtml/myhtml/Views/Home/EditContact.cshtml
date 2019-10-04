@@ -4,13 +4,10 @@
 }
 <h2>@ViewBag.Title</h2>
 <hr>
-@using (Html.BeginForm("EditContact", "Home", FormMethod.Post, new { @id = "Create" }))
+@using (Html.BeginForm("EditContact", "Home", FormMethod.Post, new { @id = "EditContact" }))
 {
     <p>
-        編號：@Html.TextBoxFor(m => m.Date, new { required = "required", disabled = "disabled" }) @Html.HiddenFor(m => m.Date)
-    </p>
-    <p>
-        日期：@Html.TextBoxFor(m => m.SeeDate, new { required = "required", disabled = "disabled" }) @Html.HiddenFor(m => m.SeeDate)
+        日期：@Html.TextBoxFor(m => m.SeeDate, new { required = "required", disabled = "disabled" }) @Html.HiddenFor(m => m.SeeDate) @Html.HiddenFor(m => m.Date)
     </p>
     <p><span style="color:red;">＊下列聯絡事項，請勿填入編號，另需填入標點＊</span></p>
     <h5 class="h5 mb-5 font-weight-normal">聯絡事項1</h5>

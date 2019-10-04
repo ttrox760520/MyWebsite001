@@ -51,16 +51,17 @@ namespace myhtml.Controllers
             var db = new StudentDBEntities();
             List<Contact> dbInfo = db.Contact.ToList();
             var NewContact = new Contact();
-
+            NewContact.Date = CreateContact.SeeDate.Replace("/", "");
             foreach (Contact theinfo in dbInfo)
             {
-                if (CreateContact.Date.Equals(theinfo.Date))
+                if (NewContact.Date.Equals(theinfo.Date))
                 {
                     ViewData["Message"] = "已有此日之聯絡事項，請檢查是否日期輸入錯誤！";
                     return View();
                 }
             }
             NewContact = CreateContact;
+            NewContact.Date = CreateContact.SeeDate.Replace("/", "");
             db.Contact.Add(NewContact);
             db.SaveChanges();
             return RedirectToAction("Contact");

@@ -18,5 +18,6 @@ namespace myhtml.Models
         public string ContactSeven { get; set; }
         public string ContactEight { get; set; }
         public string SeeDate { get; set; }
+        public string RunningMessage { get; set; }//用來接DB中的另一個Table
     }
 }

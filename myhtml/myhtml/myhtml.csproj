@@ -153,6 +153,9 @@
       <DependentUpon>StudentDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MemberList.cs" />
+    <Compile Include="Models\RunningMessage.cs">
+      <DependentUpon>StudentDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Student.cs">
       <DependentUpon>StudentDBModel.tt</DependentUpon>
     </Compile>

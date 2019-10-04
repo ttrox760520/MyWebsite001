@@ -1,7 +1,7 @@
-﻿@model myhtml.Models.Contact
+﻿@model myhtml.Models.ContactList
 @{
     ViewBag.Title = "首頁";
-    string Login = Session["Login"] != null ? @Session["Login"].ToString() :"0";
+    string Login = Session["Login"] != null ? @Session["Login"].ToString() : "0";
     string UserName = Session["UserName"] != null ? Session["UserName"].ToString() : null;
 }
 
@@ -15,6 +15,17 @@
     </FONT><p>
     <p><a href="https://www.facebook.com/profile.php?id=100000305285018&ref=bookmarks" class="btn btn-primary btn-lg">連結至Facebook &raquo;</a></p>
 </div>
+
+<marquee direction="Left" height="40" scrollamount="10" bgcolor="#444444"><font size="5" color="#00FFFF" style="font-weight:bold;" id="RunMessage" face="微軟正黑體">@Model.RunningMessage</font></marquee>
+@if (Login == "2")
+{
+    using (Html.BeginForm("ChangeRunningMessage", "Home", FormMethod.Post, new { @id = "ChangeRunningMessage" }))
+    {
+        @Html.TextBoxFor(m => m.RunningMessage , new {placeholder = "請輸入要顯示的訊息。" })
+        <input type="submit" id="submit" value="編輯跑馬燈">
+        @Html.HiddenFor(m => m.RunningMessage)
+    }
+}
 <div class="row">
     <div class="col-md-2">
         <h3>關於彥廷老師</h3>
@@ -26,7 +37,7 @@
     <div class="col-md-2">
         <h3>彥廷老師的作品集</h3>
         <p>程式相關的作品與歷程，請點選我的GitHub</p>
-        <p><a class="btn btn-default" href="https://github.com/ttrox760520">我的GitHub &raquo;</a></p>
+        <p><a class="btn btn-default" href="#" onclick="window.open('https://github.com/ttrox760520');">我的GitHub &raquo;</a></p>
     </div>
     <div class="col-md-3">
         <h3>聯絡事項</h3>
@@ -83,5 +94,16 @@
         {
             alert(message);
         };
+
+
+        //document.getElementById('ChangeRunMessage').onclick = function () { ChangeRunMessage(); }
+        //function ChangeRunMessage()
+        //{
+
+        //    var runmessage1 = document.getElementById('runmessage').value;
+        //    document.getElementById('RunMessage').innerText = runmessage1;
+        //};
+
+
     </script>
 }

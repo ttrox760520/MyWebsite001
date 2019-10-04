@@ -28,5 +28,6 @@ namespace myhtml.Models
         public DbSet<Member> Member { get; set; }
         public DbSet<Student> Student { get; set; }
         public DbSet<Contact> Contact { get; set; }
+        public DbSet<RunningMessage> RunningMessage { get; set; }
     }
 }

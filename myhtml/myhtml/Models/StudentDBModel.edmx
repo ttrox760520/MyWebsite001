@@ -31,6 +31,13 @@
           <Property Name="Memo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="RealMember" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="RunningMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="StudentID" />
@@ -47,6 +54,7 @@
         <EntityContainer Name="StudentDBModelStoreContainer">
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RunningMessage" EntityType="Self.RunningMessage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -81,6 +89,7 @@
           <EntitySet Name="Member" EntityType="Self.Member" />
           <EntitySet Name="Student" EntityType="Self.Student" />
           <EntitySet Name="Contact" EntityType="StudentDBModel.Contact" />
+          <EntitySet Name="RunningMessage" EntityType="StudentDBModel.RunningMessage" />
         </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -96,6 +105,13 @@
           <Property Name="ContactSeven" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="ContactEight" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="SeeDate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RunningMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -142,6 +158,14 @@
                 <ScalarProperty Name="ContactTwo" ColumnName="ContactTwo" />
                 <ScalarProperty Name="ContactOne" ColumnName="ContactOne" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RunningMessage">
+            <EntityTypeMapping TypeName="StudentDBModel.RunningMessage">
+              <MappingFragment StoreEntitySet="RunningMessage">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

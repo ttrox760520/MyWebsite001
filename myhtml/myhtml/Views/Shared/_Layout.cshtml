@@ -29,19 +29,19 @@
                     @*<li>@Html.ActionLink("回首頁", "Index", "Home")</li>*@
                     <li>@Html.ActionLink("班級學生", "StudentList", "StudentList")</li>
                     <li>@Html.ActionLink("留言板", "About", "Home")</li>
+                    <li><a href="#" onclick="window.open('https://www.nature.com/');">自然相關最新知識</a></li>
                     @if (Login == "0")
                     {
                         <li>@Html.ActionLink("成員登入", "SignIn", "Home")</li>
-                    }
-                    @if (Login != "0")
-                    {
-                        <li>@Html.ActionLink("登出", "SignOut", "Home")</li>
                     }
                     @if (Login == "2")
                     {
                         <li>@Html.ActionLink("會員清單", "MemberList", "MemberList")</li>
                     }
-                    <li><a href="#" onclick="window.open('https://www.nature.com/');">自然相關最新知識</a></li>
+                    @if (Login != "0")
+                    {
+                        <li>@Html.ActionLink("登出", "SignOut", "Home")</li>
+                    }
                 </ul>
             </div>
         </div>

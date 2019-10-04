@@ -28,6 +28,7 @@
     <EntitySet Name="Member" EntityType="Self.Member" />
     <EntitySet Name="Student" EntityType="Self.Student" />
     <EntitySet Name="Contact" EntityType="StudentDBModel.Contact" />
+    <EntitySet Name="RunningMessage" EntityType="StudentDBModel.RunningMessage" />
   </EntityContainer>
   <EntityType Name="Contact">
     <Key>
@@ -43,5 +44,12 @@
     <Property Name="ContactSeven" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="ContactEight" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="SeeDate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RunningMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>
